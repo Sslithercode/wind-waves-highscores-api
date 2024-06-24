@@ -1,7 +1,6 @@
 import fastapi
 from fastapi import FastAPI, Request, HTTPException
 from supabase import create_client, Client
-import json
 from dotenv import load_dotenv
 import supabase,os
 
@@ -16,17 +15,7 @@ app = FastAPI()
 
 
 
-def load_json():
-    with open('highscores.json','r') as f:
-        data = json.load(f)
-    return data
 
-def dump_json(dat):
-    with open('highscores.json','w') as f:
-         json.dump(dat, f, indent=4)
-
-
-scores = load_json()
 
 @app.get("/")
 async def root():
